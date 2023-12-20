@@ -18,7 +18,7 @@ MonoBehaviour:
   MixerGroup: {fileID: -2439821294389988173, guid: 5da2c8dde8bb9094f8aaeafbe0aca20b,
     type: 2}
   audio:
-  - {fileID: 8300000, guid: 96177964d1ebf744fa6affee41e233cc, type: 3}
+  - {fileID: 8300000, guid: 3a194a6c6af426d47b27d5bc7b45c35c, type: 3}
   soundType: 0
   randomizeClips: 0
   Secondary: {fileID: 0}
