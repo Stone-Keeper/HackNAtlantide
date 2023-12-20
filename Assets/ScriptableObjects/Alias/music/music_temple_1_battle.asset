@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e6e18e9f14a86004485fd8130044cc4c, type: 3}
-  m_Name: music_temple_1
+  m_Name: music_temple_1_battle
   m_EditorClassIdentifier: 
   aliasName: music_temple_1
   description: 
   Tag: 
-  MixerGroup: {fileID: -7229243309257646660, guid: 5da2c8dde8bb9094f8aaeafbe0aca20b,
+  MixerGroup: {fileID: -2439821294389988173, guid: 5da2c8dde8bb9094f8aaeafbe0aca20b,
     type: 2}
   audio:
-  - {fileID: 8300000, guid: 3a194a6c6af426d47b27d5bc7b45c35c, type: 3}
+  - {fileID: 8300000, guid: 4f5f03392f1d1f948a05a7ca4191bade, type: 3}
   soundType: 0
   randomizeClips: 0
   Secondary: {fileID: 0}
@@ -57,8 +57,7 @@ MonoBehaviour:
   customDuration: 0
   isInit: 0
   isPlaceholder: 1
-  audioPlayers:
-  - {fileID: 0}
+  audioPlayers: []
   UseSurfaceDetection: 0
   surfacesAlias: []
   guid: -912111177
