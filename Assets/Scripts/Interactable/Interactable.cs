@@ -5,17 +5,30 @@ using UnityEngine.Events;
 
 public abstract class Interactable : MonoBehaviour, IInteractable
 {
+    #region Unity Events
+
     public UnityEvent OnInteract;
     public UnityEvent OnResetInteract;
     public UnityEvent OnBecameClosestObject;
     public UnityEvent OnBecameNotClosestObject;
-    bool _isClosetstInteractable;
+
+    #endregion
+
+    #region Variables
+
+    private bool _isClosetstInteractable;
+
+    #endregion
+
+    #region Properties
+
     public bool IsClosestInteractable 
     { 
         get { return _isClosetstInteractable; } 
         set 
         { 
             _isClosetstInteractable = value; 
+            
             if (_isClosetstInteractable) 
             { 
                 OnBecameClosestObject?.Invoke();
@@ -23,15 +36,24 @@ public abstract class Interactable : MonoBehaviour, IInteractable
             else
             {
                 OnBecameNotClosestObject?.Invoke();
-                Debug.Log("notClosestObject");
             }
         } 
     }
 
+    #endregion
+
+    #region Logic Methods
+
     public void LaunchOnInteract()
-    { OnInteract?.Invoke(); }
+    {
+        OnInteract?.Invoke();
+    }
+
     public void LaunchOnResetInteract()
-    { OnResetInteract?.Invoke(); }
+    {
+        OnResetInteract?.Invoke();
+    }
+    
     public abstract void CancelInteract();
 
     public abstract bool Interact();
@@ -39,4 +61,6 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     public abstract void ResetInteract();
 
     public abstract void ResetTransform();
+
+    #endregion
 }

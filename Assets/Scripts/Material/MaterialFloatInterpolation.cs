@@ -56,7 +56,7 @@ public class MaterialFloatInterpolation : MonoBehaviour
     {
         for (int i = 0; i < _propBlocks.Length; i++)
         {
-            Debug.Log(_propBlocks[i].GetVector(EmissionColorID));
+           // Debug.Log(_propBlocks[i].GetVector(EmissionColorID));
             StartCoroutine(LerpColor(_propBlocks[i], i, value, timeToActiveEmissive, StateTransition.IsEnabling));
         }
     }

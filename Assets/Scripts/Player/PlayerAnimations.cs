@@ -6,9 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerAnimations : MonoBehaviour
 {
+    #region Unity Hierarchy
+
     [Header("SCRIPTS REFS")]
     private PlayerMovement _playerMovement;
     private Animator _animator;
+    
+    #endregion
+    
+    #region Properties
 
     [field: Header("VARIABLES")]
     public float TimeBeforeIdle
@@ -17,15 +23,23 @@ public class PlayerAnimations : MonoBehaviour
         set => _timeBeforeIdle = value;
     }
 
+    #endregion
+
     private float _timeBeforeIdle = 15f;
     
     private static readonly int Blend = Animator.StringToHash("Blend");
+
+    #region Init Methods
 
     private void Awake()
     {
         _playerMovement = GetComponentInParent<PlayerMovement>();
         _animator = GetComponent<Animator>();
     }
+
+    #endregion
+    
+    #region Logic Methods
 
     private void Update()
     {
@@ -81,7 +95,8 @@ public class PlayerAnimations : MonoBehaviour
 
     public void DashFinish()
     {
-        Debug.Log("dashfinish");
         _playerMovement.SetTransformLock();
     }
+
+    #endregion
 }
