@@ -28,7 +28,7 @@ public class ElectricArcController : MonoBehaviour
     {
         foreach (ElectricArc electricArc in electricArcs)
         {
-            electricArc.gameObject.SetActive(false);
+            electricArc.Deactivate();
             electricArc.transform.parent = transform.parent;
         }
     }

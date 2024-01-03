@@ -23,13 +23,26 @@ public class ElectricArc : MonoBehaviour
     [SerializeField] private int _detail;
     [SerializeField] private float _radius;
     [SerializeField] private float _speed;
+    [SerializeField] private float _desactivationTime;
     private Vector2[] randomPositions;
     private LineRenderer _lineRenderer;
     private float bezierArcAngle;
     [SerializeField] private ParticleSystem _particleSystem;
+    [SerializeField] private ParticleSystem _particleP1Sparke;
+    [SerializeField] private ParticleSystem _ParticleP2Sparke;
     #endregion
 
     #region MonoBehaviourMethods
+    private void OnEnable()
+    {
+        _p1.gameObject.SetActive(true);
+        _p2.gameObject.SetActive(true);
+    }
+    private void OnDisable()
+    {
+        _p1.gameObject.SetActive(false);
+        _p2.gameObject.SetActive(false);
+    }
     void OnValidate()
     {
         InitializeArc();
@@ -71,8 +84,10 @@ public class ElectricArc : MonoBehaviour
         var shape = _particleSystem.shape;
         shape.scale = new Vector3(distance/2f - 0.5f, 0.1f,0.1f);
         _particleSystem.transform.position = (_p1.position + _p2.position) / 2f;
-        _particleSystem.transform.forward = _p1.position - _p2.position;
-
+        Vector3 direction = _p1.position - _p2.position;
+        _particleSystem.transform.forward = direction;
+        _particleP1Sparke.transform.forward = -direction;
+        _ParticleP2Sparke.transform.forward = direction;
 
         switch (_curveType)
         {
@@ -179,6 +194,25 @@ public class ElectricArc : MonoBehaviour
 
         }
         _lineRenderer.SetPosition(_detail, _p2.position);
+    }
+    public void Deactivate()
+    {
+        if(isActiveAndEnabled)
+        {
+            StartCoroutine(Desactivation());
+        }
+    }
+
+    IEnumerator Desactivation()
+    {
+        float time = _desactivationTime;
+        while(time>0)
+        {
+            time -= Time.deltaTime;
+            _p2.position = Vector3.Lerp(_p2.position, _p1.position,1 - time / _desactivationTime);
+            yield return null;
+        }
+        gameObject.SetActive(false);
     }
     #endregion
 }
