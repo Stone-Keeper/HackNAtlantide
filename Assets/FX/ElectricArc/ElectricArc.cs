@@ -4,6 +4,7 @@ using TreeEditor;
 using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public enum CurveType
 {
@@ -25,7 +26,7 @@ public class ElectricArc : MonoBehaviour
     private Vector2[] randomPositions;
     private LineRenderer _lineRenderer;
     private float bezierArcAngle;
-
+    [SerializeField] private ParticleSystem _particleSystem;
     #endregion
 
     #region MonoBehaviourMethods
@@ -66,6 +67,13 @@ public class ElectricArc : MonoBehaviour
 
     void AnimateArc()
     {
+        float distance = (_p1.position - _p2.position).magnitude;
+        var shape = _particleSystem.shape;
+        shape.scale = new Vector3(distance/2f - 0.5f, 0.1f,0.1f);
+        _particleSystem.transform.position = (_p1.position + _p2.position) / 2f;
+        _particleSystem.transform.forward = _p1.position - _p2.position;
+
+
         switch (_curveType)
         {
             case CurveType.Linear:
