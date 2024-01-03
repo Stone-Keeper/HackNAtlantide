@@ -15,7 +15,7 @@ MonoBehaviour:
   aliasName: music_titlescreen
   description: 
   Tag: 
-  MixerGroup: {fileID: -932200924652141977, guid: 5da2c8dde8bb9094f8aaeafbe0aca20b,
+  MixerGroup: {fileID: -3609346445890456333, guid: 5da2c8dde8bb9094f8aaeafbe0aca20b,
     type: 2}
   audio:
   - {fileID: 8300000, guid: 18a30ba4d9ced1b4bb2d5d2ce30321bc, type: 3}
@@ -57,8 +57,7 @@ MonoBehaviour:
   customDuration: 0
   isInit: 0
   isPlaceholder: 1
-  audioPlayers:
-  - {fileID: 0}
+  audioPlayers: []
   UseSurfaceDetection: 0
   surfacesAlias: []
   guid: -882624091
