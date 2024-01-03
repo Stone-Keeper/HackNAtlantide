@@ -9,7 +9,7 @@ public class TowerShield : MonoBehaviour
     private IDamageable _idamageable;
     [SerializeField] private List<Character> charactersToProtect;
     private GameObject[] fxTrailGameObjects;
-    [SerializeField] private GameObject fxTrail;
+    [SerializeField] private GameObject ElectricArcFX;
     [SerializeField] private Transform pivotStartTrail;
     [SerializeField] private bool disableInvulnerabilityOnTowerDeath = true;
 
@@ -24,8 +24,7 @@ public class TowerShield : MonoBehaviour
             //ennemie cancel focusable
             charactersToProtect[i].GetComponent<Focusable>().IsTargetable = false;
 
-            var gameObjectFX = Instantiate(fxTrail);
-            var component = gameObjectFX.AddComponent<InteractableTrailLinker>();
+            var gameObjectFX = Instantiate(ElectricArcFX);
             fxTrailGameObjects[i] = gameObjectFX;
             // Destroy trail if the character die
             charactersToProtect[i].OnDeath += (sender, args) =>
@@ -36,7 +35,7 @@ public class TowerShield : MonoBehaviour
                     Destroy(gameObjectFX);
                 }
             };
-            component.SetTransformsLink(pivotStartTrail, charactersToProtect[i].transform);
+            gameObjectFX.GetComponent<ElectricArcController>().ActivateFX(pivotStartTrail, charactersToProtect[i].transform);
         }
         _idamageable.OnDeath += TowerDisable;
         OnStart?.Invoke();

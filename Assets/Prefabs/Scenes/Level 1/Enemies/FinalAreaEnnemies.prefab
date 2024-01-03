@@ -848,7 +848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersToProtect:
   - {fileID: 875635795820205923}
-  fxTrail: {fileID: 7454817308479783975, guid: abb0c1c1a30c63c46a7c27c479174b61, type: 3}
+  ElectricArcFX: {fileID: 0}
   pivotStartTrail: {fileID: 6189739255539147807}
   disableInvulnerabilityOnTowerDeath: 0
   OnStart:
@@ -1580,7 +1580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersToProtect:
   - {fileID: 875635795820205923}
-  fxTrail: {fileID: 7454817308479783975, guid: abb0c1c1a30c63c46a7c27c479174b61, type: 3}
+  ElectricArcFX: {fileID: 0}
   pivotStartTrail: {fileID: 6189739254149239599}
   disableInvulnerabilityOnTowerDeath: 0
   OnStart:
@@ -1915,7 +1915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersToProtect:
   - {fileID: 875635795820205923}
-  fxTrail: {fileID: 7454817308479783975, guid: abb0c1c1a30c63c46a7c27c479174b61, type: 3}
+  ElectricArcFX: {fileID: 0}
   pivotStartTrail: {fileID: 6189739253887982566}
   disableInvulnerabilityOnTowerDeath: 0
   OnStart:
@@ -2054,7 +2054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersToProtect:
   - {fileID: 875635795820205923}
-  fxTrail: {fileID: 7454817308479783975, guid: abb0c1c1a30c63c46a7c27c479174b61, type: 3}
+  ElectricArcFX: {fileID: 0}
   pivotStartTrail: {fileID: 6189739253947004688}
   disableInvulnerabilityOnTowerDeath: 0
   OnStart:
@@ -2188,7 +2188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charactersToProtect:
   - {fileID: 875635795820205923}
-  fxTrail: {fileID: 7454817308479783975, guid: abb0c1c1a30c63c46a7c27c479174b61, type: 3}
+  ElectricArcFX: {fileID: 0}
   pivotStartTrail: {fileID: 6189739253829583152}
   disableInvulnerabilityOnTowerDeath: 0
   OnStart:
