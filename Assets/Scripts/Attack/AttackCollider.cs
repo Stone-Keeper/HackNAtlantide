@@ -9,10 +9,13 @@ using UnityEngine.Serialization;
 public class AttackCollider : MonoBehaviour , IAttackCollider
 {
     private List<IDamageable> _damageableHitted;
+    
+    // Probably used in an Unity Event
     public void ResetListDamageableHitted()
     {
         _damageableHitted = new List<IDamageable>();
     }
+    
     public event EventHandler OnCollideWithIDamageable;
     public UnityEvent OnHitEvent;
     AnimationEvent _damageActiveAnimatorEvent;
@@ -24,13 +27,12 @@ public class AttackCollider : MonoBehaviour , IAttackCollider
     [SerializeField] private LayerMask interactWithLayers;
     private void OnEnable()
     {
-        _damageableHitted = new List<IDamageable>();
+        ResetListDamageableHitted();
     }
 
     private void OnDisable()
     {
-        _damageableHitted = new List<IDamageable>();
-        Debug.Log("disable");
+        ResetListDamageableHitted();
     }
 
     private void OnHit(IDamageable damageable)
