@@ -138,6 +138,7 @@ public class DataPersistentHandler : ScriptableObject
         }
         File.WriteAllBytes(dataPath, byteData);
     }
+    
     public static void Load(ISave save, string fileName)
     {
         string dataPath = Path.Combine(Application.persistentDataPath, (ParentFolderName + fileName));
@@ -146,6 +147,7 @@ public class DataPersistentHandler : ScriptableObject
             Debug.LogWarning("File or path does not exist! " + dataPath);
             return;
         }
+        
         byte[] jsonDataAsBytes = null;
         if (File.Exists(dataPath))
         {

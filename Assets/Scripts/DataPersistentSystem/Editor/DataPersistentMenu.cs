@@ -13,6 +13,14 @@ public class DataPersistentMenu
          ResetScriptablesValue(GetAllInstances<ScriptableValueBoolSaveable>());
          ResetScriptablesValue(GetAllInstances<ScriptableValueIntSaveable>());
          ResetScriptablesValue(GetAllInstances<ScriptableValueVector3Saveable>());
+
+         // TODO : normally we have ONE handler, so we need to fix that
+         DataPersistentHandler[] dataPersistentHandlers = GetAllInstances<DataPersistentHandler>();
+
+         foreach (DataPersistentHandler dataPersistent in dataPersistentHandlers)
+         {
+             dataPersistent.SaveAll();
+         }
      }
 
      private static void ResetScriptablesValue(ISave[] array) 
@@ -22,6 +30,7 @@ public class DataPersistentMenu
              scriptableObject.OnReset();
              Debug.Log($"Reset default value for : {scriptableObject}");
          }
+         
          // Important to save assets, otherwise the editor will not update the file
          AssetDatabase.SaveAssets();
      }
