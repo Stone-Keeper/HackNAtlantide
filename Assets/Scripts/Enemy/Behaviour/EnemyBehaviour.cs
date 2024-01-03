@@ -84,8 +84,11 @@ public class EnemyBehaviour : MonoBehaviour
     void CanTargetPlayer(bool value)
     {
         canTargetPlayer = value;
-        if (!value)
+        
+        if (!value && Agent.enabled)
+        {
             Agent.SetDestination(transform.position);
+        }
     }
     #endregion
     public virtual void Update()
