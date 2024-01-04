@@ -20991,6 +20991,8 @@ MonoBehaviour:
         m_CallState: 2
   endposWait: {fileID: 0}
   spawnpos: {fileID: 0}
+  decalLanding: {fileID: 8415996246885890113}
+  lineRenderer: {fileID: 8180501424793345169}
 --- !u!114 &4107908253629067268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25960,6 +25962,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8105475940205990828, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+        type: 3}
+      propertyPath: m_Name
+      value: AttackJumpDecal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8105475940205990828, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152694575126176262, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: e9826216a2f9a1340af6794e67181c81, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f12867e16c3e7ab458ddf87c6a10ae4e, type: 3}
 --- !u!4 &1728802932543887486 stripped
@@ -25983,6 +26000,18 @@ Transform:
 --- !u!4 &6339698296741000042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6002403920934475911, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 340004812681866221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &8180501424793345169 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 8444541940068857724, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 340004812681866221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8415996246885890113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8105475940205990828, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
     type: 3}
   m_PrefabInstance: {fileID: 340004812681866221}
   m_PrefabAsset: {fileID: 0}

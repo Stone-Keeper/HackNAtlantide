@@ -10091,6 +10091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918bce5cca5e7764d8cff647e6e99bf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  character: {fileID: 0}
   meshRenderer: {fileID: 6899247694624450876}
 --- !u!114 &4941157224044765246
 MonoBehaviour:
@@ -10131,6 +10132,7 @@ MonoBehaviour:
   _distanceToSleep: 45
   _goBackToStartPosToSleep: 1
   _wakeUpAtStart: 0
+  _canReturnSleep: 1
   OnAwake:
     m_PersistentCalls:
       m_Calls:
@@ -10329,6 +10331,8 @@ MonoBehaviour:
   groundCrackDecal: {fileID: 1542103408150096367, guid: 34d8fd5d7088d8a4ebf93f2d843fd750,
     type: 3}
   attackLandingShake: {fileID: 11400000, guid: 681fb5f98c9e98a46a99bb61a4ed37d0, type: 2}
+  decalLanding: {fileID: 6802015173514702965}
+  lineRenderer: {fileID: 6568774427585811621}
 --- !u!114 &2077192284496306439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11410,6 +11414,18 @@ Transform:
 --- !u!4 &4419141905751789642 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1389925122537550739, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3321954131922199513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!120 &6568774427585811621 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 8444541940068857724, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3321954131922199513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6802015173514702965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8105475940205990828, guid: f12867e16c3e7ab458ddf87c6a10ae4e,
     type: 3}
   m_PrefabInstance: {fileID: 3321954131922199513}
   m_PrefabAsset: {fileID: 0}

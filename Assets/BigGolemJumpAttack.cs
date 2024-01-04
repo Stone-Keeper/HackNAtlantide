@@ -39,6 +39,8 @@ public class BigGolemJumpAttack : EnemyAttackBehaviour
     bool canJump = true;
     public Transform endposWait;
     public Transform spawnpos;
+    [SerializeField] private GameObject decalLanding;
+    [SerializeField] private LineRenderer lineRenderer;
 
     public override void Attack()
     {
@@ -87,6 +89,13 @@ public class BigGolemJumpAttack : EnemyAttackBehaviour
         _enemyBehaviour.Animator.CrossFadeInFixedTime(JumpAnimID, 0f);
         yield return new WaitForSeconds(jumpAnimTime);
         OnJump?.Invoke();
+        decalLanding.SetActive(true);
+        //affiche ma trajectoire avec la linerenderer
+        for(int i = 0; i < lineRenderer.positionCount; i++)
+        {
+            lineRenderer.SetPosition(i, bezierCurve.GetPointBezierCurve((float)i / lineRenderer.positionCount));
+        }
+        lineRenderer.gameObject.SetActive(true);
         //se deplace sur la courbe bezier et joue les anims qui faut
         float timeToJump = 0f;
         while (timeToJump < jumpTime)
@@ -120,6 +129,10 @@ public class BigGolemJumpAttack : EnemyAttackBehaviour
         _enemyBehaviour.IsAttacking = false;
         //launchExplosion
         StartCoroutine(ExplosionAttack());
+
+        decalLanding.SetActive(false);
+        lineRenderer.gameObject.SetActive(false);
+
         yield return new WaitForSeconds(1f);
 
         _enemyBehaviour.Agent.enabled = true;
@@ -127,6 +140,8 @@ public class BigGolemJumpAttack : EnemyAttackBehaviour
 
     public override void CancelAttack()
     {
+        decalLanding.SetActive(false);
+        lineRenderer.gameObject.SetActive(false);
         base.CancelAttack();
         if (_isJumping)
         {

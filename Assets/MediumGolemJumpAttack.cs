@@ -34,6 +34,8 @@ public class MediumGolemJumpAttack : EnemyAttackBehaviour
     SphereCollider explosionCollider;
     [SerializeField] GameObject groundCrackDecal;
     [SerializeField] CameraShakeScriptableObject attackLandingShake;
+    [SerializeField] private GameObject decalLanding;
+    [SerializeField] private LineRenderer lineRenderer;
 
     public override void Attack()
     {
@@ -70,6 +72,14 @@ public class MediumGolemJumpAttack : EnemyAttackBehaviour
         _enemyBehaviour.Animator.CrossFadeInFixedTime(JumpAnimID, 0f);
         yield return new WaitForSeconds(jumpAnimTime);
 
+        decalLanding.SetActive(true);
+        //affiche ma trajectoire avec la linerenderer
+        for (int i = 0; i < lineRenderer.positionCount; i++)
+        {
+            lineRenderer.SetPosition(i, bezierCurve.GetPointBezierCurve((float)i / lineRenderer.positionCount));
+        }
+        lineRenderer.gameObject.SetActive(true);
+
         //se deplace sur la courbe bezier et joue les anims qui faut
         float timeToJump = 0f;
         while (timeToJump < jumpTime)
@@ -96,7 +106,8 @@ public class MediumGolemJumpAttack : EnemyAttackBehaviour
         _enemyBehaviour.Agent.enabled = true;
         attackLandingShake.ShakeByDistance(_enemyBehaviour.DistanceWithPlayer/10f);
         OnAttackFinished();
-
+        decalLanding.SetActive(false);
+        lineRenderer.gameObject.SetActive(false);
         //launchExplosion
         StartCoroutine(ExplosionAttack());
     }
